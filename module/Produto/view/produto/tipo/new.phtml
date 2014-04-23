@@ -1,0 +1,14 @@
+<h3>Novo Tipo</h3>
+<br />
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('produto-admin/default', array(
+    'controller' => 'TipoController',
+    'action' => 'new'
+)));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>

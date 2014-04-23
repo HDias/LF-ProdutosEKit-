@@ -1,0 +1,12 @@
+<h3>Edição de Produto</h3>
+<br />
+<?php
+
+$form = $this->form;
+$form->setAttribute('action',$this->url('produto-admin/default',array('controller'=>'ProdutoController','action'=>'edit')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+?>

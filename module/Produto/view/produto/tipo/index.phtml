@@ -1,0 +1,38 @@
+<h1>Lista de tipos</h1>
+
+<br />
+
+<p>
+    <a href="<?php echo $this->url('produto-admin/default',
+                        array('controller'=>'TipoController', 
+                              'action'=>'new')); ?>">Novo</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Opções</th>
+    </tr>
+    
+    <?php foreach($this->lista as $entity): ?>
+    <tr>
+    
+        <td><?php echo $entity->getId(); ?></td>
+        <td><?php echo $entity->getNome(); ?></td>
+        <td>
+            <a href="<?php echo $this->url('produto-admin/default',
+                     array('controller'=>'TipoController', 
+                           'action'=>'edit',
+                           'id'=>$entity->getId()));?>">Editar</a>
+            
+            <a href="<?php echo $this->url('produto-admin/default',
+                    array('controller'=>'TipoController', 
+                          'action'=>'delete',
+                            'id'=>$entity->getId()));?>">Delete</a>
+            
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+<br />

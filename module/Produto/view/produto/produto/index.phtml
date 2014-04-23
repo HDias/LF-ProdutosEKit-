@@ -1,0 +1,48 @@
+<h1>Lista de CLientes</h1>
+
+<a class="btn btn-success" title="Novo"
+	href="<?php echo $this->url('produto-admin/default',
+                        array('controller'=>'ProdutoController', 
+                              'action'=>'new')); ?>"> 
+     <span class="glyphicon glyphicon-plus"></span>
+</a>
+<table class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Imagem</th>
+			<th>Nome</th>
+			<th>Descrição</th>
+			<th>Quantidade</th>
+			<th>Tipo</th>
+			<th>Valor</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<?php foreach($this->lista as $entity): ?>
+		<tr>
+			<td><?php echo $this->escapeHtml($entity->getId()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getImagem()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getNome()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getDescricao()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getQuantidade()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getTipo()->getnome()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValor()); ?></td>
+			<td>
+            <a href="<?php echo $this->url('produto-admin/default',
+                     array('controller'=>'ProdutoController', 
+                           'action'=>'edit',
+                           'id'=>$entity->getId()));?>">Editar</a>
+            
+            <a href="<?php echo $this->url('produto-admin/default',
+                    array('controller'=>'ProdutoController', 
+                          'action'=>'delete',
+                            'id'=>$entity->getId()));?>">Delete</a>
+            
+            </td>
+
+		</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>
