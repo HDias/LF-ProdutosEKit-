@@ -1,0 +1,29 @@
+<h1>Kit do Cliente: <?php echo $this->nome; ?></h1>
+<table class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Produto</th>
+			<th>Quantidade</th>
+			<th>Valor</th>
+			<th>Valor Frete</th>
+		</tr>
+	</thead>
+	<tbody>
+    	<?php foreach($this->lista as $entity): ?>
+    		<tr>
+			<td><?php echo $this->escapeHtml($entity->getId()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getIdProduto()->getNome()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getQuantidade()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValorTotal()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValorFrete()); ?></td>
+		</tr>
+    	<?php endforeach;?>
+	</tbody>
+</table>
+
+<div class="panel-footer">
+	<a
+		href="<?php echo $this->url('produto-admin/default', array('controller'=>'VendaController')); ?>"
+		class="btn btn-default btn-sm">Voltar</a>
+</div>

@@ -1,0 +1,36 @@
+<h1>Lista de Vendas</h1>
+<table class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Cliente</th>
+			<th>Data Compra</th>
+			<th>Data Entrega</th>
+			<th>Valor Kit</th>
+			<th>Valor Frete</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<?php foreach($this->lista as $entity): ?>
+		<tr>
+			<td><?php echo $this->escapeHtml($entity->getId()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getIdCliente()->getnome()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getDataCompra()->format('d/m/Y H:i:s')); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getDataEntrega()->format('d/m/Y H:i:s')); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValorTotalKit()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValorTotalFrete()); ?></td>
+			<td><?php echo $this->escapeHtml($entity->getValorTotalKit() + $entity->getValorTotalFrete()); ?></td>
+			<td>
+            <a href="<?php echo $this->url('produto-admin/kits',
+                     array('controller'=>'KitController', 
+                           'action'=>'kit',
+                           'name' => $entity->getIdCliente()->getnome(),
+                           'id'=> $entity->getId()));?>">KIT</a>
+            
+
+		</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>

@@ -4,7 +4,7 @@ return array(
 				'ZendDeveloperTools',
 				'DoctrineModule',
 				'DoctrineORMModule',
-				'Produto',	
+				'Produto','Venda',	
 		),
 		'module_listener_options' => array(
 				'module_paths' => array(
